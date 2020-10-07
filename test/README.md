@@ -163,6 +163,8 @@ Alice 转入 c 个 XToken ，那么可以兑换出来的 ETH 数量 e 为：
 
 原理示例：
 
+![](https://nestapp.oss-cn-beijing.aliyuncs.com/NestCoreForGitHub/cofixImage.png)
+
 计算过程以 Alice 使用 USDT 兑换 HBTC 过程为例：
 
 那么, 当Alice 使用 a 个 USDT兑换出 y 个 HBTC, 计算过程为：
