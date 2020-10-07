@@ -271,7 +271,7 @@ Alice 转入 c 个 XToken ，那么可以兑换出来的 ETH 数量 e 为：
 
 假设有![](http://latex.codecogs.com/svg.latex?q)个交易池可以参与挖矿，对应的XToken依次记为 ![](http://latex.codecogs.com/svg.latex?XT_{1})、![](http://latex.codecogs.com/svg.latex?XT_{2})…![](http://latex.codecogs.com/svg.latex?XT_{n})，则做市商矿池等比例分成![](http://latex.codecogs.com/svg.latex?q)个子矿池，即![](http://latex.codecogs.com/svg.latex?B_{1})、![](http://latex.codecogs.com/svg.latex?B_{2})...![](http://latex.codecogs.com/svg.latex?B_{q})。某个池子![](http://latex.codecogs.com/svg.latex?B_{j})，以及做市商m在时刻![](http://latex.codecogs.com/svg.latex?h_{m,t-1})(![](http://latex.codecogs.com/svg.latex?h_{m,t-1})表示做市商m的第t-1次操作对应的时刻)存入![](http://latex.codecogs.com/svg.latex?B_{j})矿池合约的![](http://latex.codecogs.com/svg.latex?X_{j})的数量余额![](http://latex.codecogs.com/svg.latex?x_{m,t-1})，则做市商在其后一个时刻![](http://latex.codecogs.com/svg.latex?h_{m,t})，无论执行存入、取出、领取三种操作的任何一种，都可以挖出CoFi，且其出矿量为：
 
-![](http://latex.codecogs.com/svg.latex?B_{m,t}(X_{m,t-1})=(G_{m,t}-G_{m,t-1})*X_{m,t-1})
+![](http://latex.codecogs.com/svg.latex?B_{m,t}(x_{m,t-1})=(G_{m,t}-G_{m,t-1})*x_{m,t-1})
 
 公式注释：
 
