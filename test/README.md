@@ -63,7 +63,7 @@ ETH：HBTC 交易池，价格从 NEST 的 ETH/HBTC 预言机调用。
 
 ### 4.1、做市商份额
 
-份额代表着 CoFiX某个资产池所拥有的做市资产比例凭证。当做市商向交易池转入资产进行做市时，获得 X-Token。当做市商想退出时，通过转出并销毁 X-Token，赎回对应价值的资产。
+份额代表着 CoFiX某个资产池所拥有的做市资产比例凭证。当做市商向交易池转入资产进行做市时，获得 XToken。当做市商想退出时，通过转出并销毁 XToken，赎回对应价值的资产。
 
 每个做市资金池拥有独立的 XToken，按照交易对创建时间顺序对 XToken 进行命名为 ![](http://latex.codecogs.com/svg.latex?XT_{1})、![](http://latex.codecogs.com/svg.latex?XT_{2})、![](http://latex.codecogs.com/svg.latex?XT_{3}) …
 
@@ -74,6 +74,8 @@ ETH：HBTC 交易池，价格从 NEST 的 ETH/HBTC 预言机调用。
 净值初始化为 1
 
 初始发行份额数量![](http://latex.codecogs.com/svg.latex?S_{0})为：
+
+![](http://latex.codecogs.com/svg.latex?S_{0}=A_{u}/P_{b}^{'}&plus;A_{e})
 
 其中：![](http://latex.codecogs.com/svg.latex?P_{b}^{'}=P*(1+K))，P 为ETH/USDT的当前价格 ，K为当前补偿系数
 
@@ -197,13 +199,12 @@ Alice 转入 c 个 XToken ，那么可以兑换出来的 ETH 数量 e 为：
 当波动率上升到一个极端情况，或者 NEST 系统被攻击时，需要 CoFiX 启动应急方案，主要是为了保护交易双方，特别是做市商。此时系统可以设置停机机制，即触发 一类条件时暂停交易。目前设置的停机条件有5类，当达到停机条件时，发出的交易会被revert: 
 
 1. ![](http://latex.codecogs.com/svg.latex?K_{0})值超过一个范围，目前设定为![](http://latex.codecogs.com/svg.latex?K_{0}>5%)；
-2. 波动率![](http://latex.codecogs.com/svg.latex?\sigma&space;)上升到一个范围，目前设定为![](http://latex.codecogs.com/svg.latex?\sigma>0.1%/s)；
+2. 秒级波动率![](http://latex.codecogs.com/svg.latex?\sigma&space;)上升到一个范围，目前设定为![](http://latex.codecogs.com/svg.latex?\sigma>0.1%)；
 3. 预言机价格间隔：![](http://latex.codecogs.com/svg.latex?T>900s)；
 4. 交易打包延迟：![](http://latex.codecogs.com/svg.latex?t>600s)；
 5. 实际成交价差：![](http://latex.codecogs.com/svg.latex?P_{d}>1%)。
 
 具体停机参数的计算见附录”CoFiX价格偏差系数（K）计算说明”
-是执行价格和预言机价格差的比例。
 
 ## 7、流动性挖矿激励系统
 
