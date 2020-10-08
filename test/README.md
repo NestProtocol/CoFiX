@@ -432,7 +432,7 @@ DAO资产的管理 | DAO资产，回购、分红、流动性挖矿、出售、�
 
 则当期（t）波动率可指数加权移动平均模型（EWMA）来计算，公式为：
 
-![](http://latex.codecogs.com/svg.latex?{\sigma&space;_{t}}^{2}=\lambda&space;{\sigma&space;_{t-1}}^{2}&plus;(1-\lambda)*{u_{t-1}}^{2}),![](http://latex.codecogs.com/svg.latex?t=2,3...)
+![](http://latex.codecogs.com/svg.latex?{\sigma&space;_{t}{2}}=\lambda&space;{\sigma&space;_{t-1}{2}}&plus;(1-\lambda)*{u_{t-1}{2}}),![](http://latex.codecogs.com/svg.latex?t=2,3...)
 
 其中:![](http://latex.codecogs.com/svg.latex?\lambda\in(0,1)), 因为NEST的有效报价有区块间隔，上述公式可调整为：
 
