@@ -464,7 +464,7 @@ T 为时间延迟：T=（打包成功区块高度-最近有效NEST价格所在�
 
 ![](http://latex.codecogs.com/svg.latex?\bar{K}_{0}=E[K_{0}(T,\sigma)])
 
-这里的![](http://latex.codecogs.com/svg.latex?\bar{K}_{0})就是在随机向量![](http://latex.codecogs.com/svg.latex?(T,\sigma&space;))联合分布下的期望。
+这里的![](http://latex.codecogs.com/svg.latex?\bar{K}_{0})就是![](http://latex.codecogs.com/svg.latex?K_{0})在随机向量![](http://latex.codecogs.com/svg.latex?(T,\sigma&space;))联合分布下的期望。
 
 基于2020年7月13日到2020年9月13日的数据，我们估计得到![](http://latex.codecogs.com/svg.latex?K_{0})的期望值![](http://latex.codecogs.com/svg.latex?\bar{K}_{0}\approx0.005)
 
