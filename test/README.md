@@ -444,15 +444,15 @@ DAO资产的管理 | DAO资产，回购、分红、流动性挖矿、出售、�
 
 我们再用线性公式来估计NEST价格的偏差的上限：
 
-![](http://latex.codecogs.com/svg.latex?\alpha=-0.0014687&plus;19.8898*\sigma&plus;gascost/10) （2）
+![](http://latex.codecogs.com/svg.latex?a(\sigma)=-0.0014687&plus;19.8898*\sigma&plus;gascost/10) （2）
 
 其中：gascost=gas price*gasconsumed per transcation, 当前设定gascost=0.03，可根据实际情况进行调整。
 
 T 为时间延迟：T=（打包成功区块高度-最近有效NEST价格所在区块高度）* timespan。
 
-再根据公式（1）和（2）计算出![](http://latex.codecogs.com/svg.latex?\sigma)和![](http://latex.codecogs.com/svg.latex?\alpha)，代入做市商预期亏损最大边界的计算公式：
+再根据公式（1）和（2）计算出![](http://latex.codecogs.com/svg.latex?\sigma)和![](http://latex.codecogs.com/svg.latex?a)，代入做市商预期亏损最大边界的计算公式：
 
-![](http://latex.codecogs.com/svg.latex?K_{0}=\frac{\alpha}{1-\alpha}&plus;\frac{1}{1-\alpha}\frac{\sigma&space;\sqrt{2T}}{\sqrt{\pi&space;}})
+![](http://latex.codecogs.com/svg.latex?K_{0}=\frac{a}{1-a}&plus;\frac{1}{1-a}\frac{\sigma&space;\sqrt{2T}}{\sqrt{\pi&space;}})
 
 即可算出![](http://latex.codecogs.com/svg.latex?K_{0})的值。由![](http://latex.codecogs.com/svg.latex?K_{0})的值，通过下面的线性公式得到![](http://latex.codecogs.com/svg.latex?K)的值。
 
