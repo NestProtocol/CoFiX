@@ -438,7 +438,7 @@ DAO资产的管理 | DAO资产，回购、分红、流动性挖矿、出售、�
 
 ![](http://latex.codecogs.com/svg.latex?{\sigma&space;_{t}^{2}}=\lambda{\sigma_{t-1}^{2}}&plus;(1-\lambda)*\frac{{u_{t-1}^{2}}}{n_{t-1}*timespan}),![](http://latex.codecogs.com/svg.latex?t=2,3...)（1）
 
-其中，![](http://latex.codecogs.com/svg.latex?n_{t})代表价格和价格之间的区块间隔数；timespan是以太坊出块平均时间；开始值![](http://latex.codecogs.com/svg.latex?\sigma&space;_{1}=\frac{u_{1}^{2}}{n_{1}*timespan})；当前设定![](http://latex.codecogs.com/svg.latex?\lambda=0.95&space;)。
+其中，![](http://latex.codecogs.com/svg.latex?n_{t})代表价格和价格之间的区块间隔数；timespan是以太坊出块平均时间；开始值![](http://latex.codecogs.com/svg.latex?\sigma^{2}&space;_{1}=\frac{u_{1}^{2}}{n_{1}*timespan})；当前设定![](http://latex.codecogs.com/svg.latex?\lambda=0.95&space;)。
 
 以此权重计算，最新的50个波动率占90％以上的权重，各数值的影响力随时间呈指数式递减，时间越靠近当前时刻的数据影响力越大。同样EWMA模型可以对NEST有效价格数据进行处理，![](http://latex.codecogs.com/svg.latex?\bar{P}_{t}=\lambda\bar{P}_{t-1}&plus;(1-\lambda)P_{t})其中![](http://latex.codecogs.com/svg.latex?\bar{P}_{1}=P_{1})，![](http://latex.codecogs.com/svg.latex?t=2,3...)，根据NEST价格数据，价格![](http://latex.codecogs.com/svg.latex?P_{t})比EWMA价格![](http://latex.codecogs.com/svg.latex?\bar{P}_{t})高出或低于2.5％以上的概率仅为0.19％。因此可以用公式![](http://latex.codecogs.com/svg.latex?\left|P_{t}/\bar{P}_{t-1}-1&space;\right|<2.5%)来限制正常价格取值范围，排除异常价格数据。
 
