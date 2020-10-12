@@ -220,9 +220,9 @@ Alice 转入 c 个 XToken ，那么可以兑换出来的 ETH 数量 e 为：
 
 矿池A：动态出矿，总量不固定，单笔交易的出矿量和佣金、最近300个区块的交易密度、做市商资金池的规模及平衡性相关，每笔交易出矿中，80%由交易者获得，10%分给对应的做市商矿池，10%归属节点矿池。
 
-矿池B：由固定出矿和浮动出矿两部分，固定出矿部分，每个区块出矿9个，每240万个区块后衰减到上期值的80%，960万个区块后不再衰减，按照每个块出矿；浮动部分为交易出矿的10%。
+矿池B：由固定出矿和浮动出矿两部分，固定出矿部分，每个区块出矿9个，每240万个区块后衰减到上期值的80%，960万个区块后不再衰减，按照每个块出矿3.6864；浮动部分为交易出矿的10%。
 
-矿池C：当由固定出矿和浮动出矿两部分，固定出矿部分，每个区块出矿1个，每240万个区块后衰减到上期值的80%，960万个区块后不再衰减，按照每个块出矿；浮动部分为交易出矿的10%。
+矿池C：当由固定出矿和浮动出矿两部分，固定出矿部分，每个区块出矿1个，每240万个区块后衰减到上期值的80%，960万个区块后不再衰减，按照每个块出矿0.4096；浮动部分为交易出矿的10%。
 
 ### 7.2、交易者挖矿模型：
 
@@ -245,7 +245,7 @@ Alice 转入 c 个 XToken ，那么可以兑换出来的 ETH 数量 e 为：
 
 ![](http://latex.codecogs.com/svg.latex?\varphi&space;_{1}=2/3\approx0.67,\varphi&space;_{2}=1/3\approx&space;0.33)
 
-(5) ![](http://latex.codecogs.com/svg.latex?r)为做市资产的预期收益率, 当前设![](http://latex.codecogs.com/svg.latex?r=0.33)。
+(5) ![](http://latex.codecogs.com/svg.latex?r)为做市资产的预期收益率, 当前设![](http://latex.codecogs.com/svg.latex?r=0.3)。
 
 3. 考虑到连续若干笔交易规模过大，会导致出矿不受控制，因此我们设计了密度衰减指标，其核心参数如下：
 
@@ -292,7 +292,7 @@ Alice 转入 c 个 XToken ，那么可以兑换出来的 ETH 数量 e 为：
 
 公式注释：
 
-(1) 为矿池B在![](http://latex.codecogs.com/svg.latex?h_{t})时刻的单位区块固定部分的出矿量,初始![](http://latex.codecogs.com/svg.latex?b_{0}=9)，过240万个区块衰减到上期值的80%，960万个区块后不再衰减，按照每个块出矿；
+(1) 为矿池B在![](http://latex.codecogs.com/svg.latex?h_{t})时刻的单位区块固定部分的出矿量,初始![](http://latex.codecogs.com/svg.latex?b_{0}=9)，过240万个区块衰减到上期值的80%，960万个区块后不再衰减，按照每个块出矿3.6864；
 
 (2) ![](http://latex.codecogs.com/svg.latex?I_{j}(Y_{i}))为![](http://latex.codecogs.com/svg.latex?h_{t-1})到![](http://latex.codecogs.com/svg.latex?h_{t})期间j交易池交易挖矿分给做市商的部分；
 
@@ -320,7 +320,7 @@ Alice 转入 c 个 XToken ，那么可以兑换出来的 ETH 数量 e 为：
 
 公式注释：
 
-(1) ![](http://latex.codecogs.com/svg.latex?c_{t})为矿池C在![](http://latex.codecogs.com/svg.latex?h_{t})时刻的单位区块固定出矿部分，每个区块出矿1个，每240万个区块后衰减到上期值的80%，960万个区块后不再衰减，按照每个块出矿；
+(1) ![](http://latex.codecogs.com/svg.latex?c_{t})为矿池C在![](http://latex.codecogs.com/svg.latex?h_{t})时刻的单位区块固定出矿部分，每个区块出矿1个，每240万个区块后衰减到上期值的80%，960万个区块后不再衰减，按照每个块出矿 0.4096 ；
 
 (2) ![](http://latex.codecogs.com/svg.latex?\Sigma&space;R(y_{t}))为![](http://latex.codecogs.com/svg.latex?h_{t-1})到![](http://latex.codecogs.com/svg.latex?h_{t})期间交易池交易挖矿分给节点的部分；
 
