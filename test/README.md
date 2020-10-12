@@ -173,17 +173,19 @@ Alice 转入 c 个 XToken ，那么可以兑换出来的 ETH 数量 e 为：
 
 ![](http://latex.codecogs.com/svg.latex?x=(a/P_{1,b}^{'})*(1-\theta))
 
+其中：![](http://latex.codecogs.com/svg.latex?P_{1,b}^{'}=P_{1}*(1&plus;K_{1}))，![](http://latex.codecogs.com/svg.latex?P_{1})为ETH/USDT 预言机价格, ![](http://latex.codecogs.com/svg.latex?K_{1})为ETH:USDT 交易池价格补偿系数。
+
 2. 使用 x 个  ETH 兑换出 y 个 HBTC
 
 ![](http://latex.codecogs.com/svg.latex?y=x*P_{2,s}^{'}*(1-\theta&space;))
+
+其中：![](http://latex.codecogs.com/svg.latex?P_{2,s}^{'}=P_{2}*(1-K_{2})),![](http://latex.codecogs.com/svg.latex?P_{2})为ETH/HBTC 预言机价格,![](http://latex.codecogs.com/svg.latex?K_{2})为ETH:HBTC交易池价格补偿系数; ![](http://latex.codecogs.com/svg.latex?\theta)为交易手续费系数。
 
 3. 1 和 2步骤合并可以得出，使用 a 个 USDT 可以兑换出的 HBTC数量为
 
 ![](http://latex.codecogs.com/svg.latex?y=(a/P_{1,b}^{'})*P_{2,s}^{'}*(1-\theta&space;)^{2})
 
-其中：
-
-![](http://latex.codecogs.com/svg.latex?P_{1})为ETH/USDT预言机价格, ![](http://latex.codecogs.com/svg.latex?K_{1})为ETH:USDT交易池价格补偿系数;![](http://latex.codecogs.com/svg.latex?P_{2})为ETH/HBTC预言机价格 ,![](http://latex.codecogs.com/svg.latex?K_{2})为ETH:HBTC交易池价格补偿系数; ![](http://latex.codecogs.com/svg.latex?\theta)为交易手续费系数。
+其中：![](http://latex.codecogs.com/svg.latex?P_{1,b}^{'}=P_{1}*(1&plus;K_{1}))，![](http://latex.codecogs.com/svg.latex?P_{1})为ETH/USDT预言机价格, ![](http://latex.codecogs.com/svg.latex?K_{1})为ETH:USDT交易池价格补偿系数;![](http://latex.codecogs.com/svg.latex?P_{2,s}^{'}=P_{2}*(1-K_{2}))，![](http://latex.codecogs.com/svg.latex?P_{2})为ETH/HBTC预言机价格 ,![](http://latex.codecogs.com/svg.latex?K_{2})为ETH:HBTC交易池价格补偿系数; ![](http://latex.codecogs.com/svg.latex?\theta)为交易手续费系数。
 
 ## 6、风险控制
 
@@ -229,7 +231,7 @@ Alice 转入 c 个 XToken ，那么可以兑换出来的 ETH 数量 e 为：
 1. 假设该笔交易的规模为![](http://latex.codecogs.com/svg.latex?X_{t})(ETH)，佣金为![](http://latex.codecogs.com/svg.latex?Y_{t}=X_{t}*\theta&space;)(ETH)；
 2. 单位佣金（1ETH）挖出的CoFi标准量为at  , at的计算公式如下：
 
-![](http://latex.codecogs.com/svg.latex?a_{t}=\frac{b_{t}*\varphi*2400000}{X_{t}*N_{p}*0.3})
+![](http://latex.codecogs.com/svg.latex?a_{t}=\frac{b_{t}*\varphi*2400000}{X_{t}*N_{p}*r})
 
 公式注释：
 
@@ -239,11 +241,15 @@ Alice 转入 c 个 XToken ，那么可以兑换出来的 ETH 数量 e 为：
 
 (3) ![](http://latex.codecogs.com/svg.latex?N_{p})为当前交易对池子的净值；
 
-(4) ![](http://latex.codecogs.com/svg.latex?\varphi)为对应交易对的出矿系数，也即当前交易对池子的出矿占比。
+(4) ![](http://latex.codecogs.com/svg.latex?\varphi)为对应交易对的出矿系数，也即当前交易对池子的出矿占比。![](http://latex.codecogs.com/svg.latex?\varphi_{1})为ETH-USDT交易对的出矿系数，![](http://latex.codecogs.com/svg.latex?\varphi_{2})为ETH-HBTC交易对的出矿系数，当前
+
+![](http://latex.codecogs.com/svg.latex?\varphi&space;_{1}=2/3\approx0.67,\varphi&space;_{2}=1/3\approx&space;0.33)
+
+(5) ![](http://latex.codecogs.com/svg.latex?r)为做市资产的预期收益率, 当前设![](http://latex.codecogs.com/svg.latex?r=0.33)。
 
 3. 考虑到连续若干笔交易规模过大，会导致出矿不受控制，因此我们设计了密度衰减指标，其核心参数如下：
 
-(1) 单笔交易触发密度衰减的阈值为![](http://latex.codecogs.com/svg.latex?L*\theta*a_{t})，其中![](http://latex.codecogs.com/svg.latex?L)为做市商对应矿池的资产总额（ETH）的千分之一，即![](http://latex.codecogs.com/svg.latex?L=\frac{X_{t}*N_{p}}{1000})，![](http://latex.codecogs.com/svg.latex?L)的最小值为100（ETH）；
+(1) 单笔交易触发密度衰减的阈值为![](http://latex.codecogs.com/svg.latex?L*\theta*a_{t})，其中![](http://latex.codecogs.com/svg.latex?L=X_{t}*N_{p}*I)，I为衰减阈值系数，当前设定I=0.002，![](http://latex.codecogs.com/svg.latex?L)的最小值为100（ETH）；
 
 (2) 假设本次交易和上次交易之间的区块间隔为s，则密度参数:
 
@@ -255,7 +261,7 @@ Alice 转入 c 个 XToken ，那么可以兑换出来的 ETH 数量 e 为：
 
 假设交易者用资产![](http://latex.codecogs.com/svg.latex?V_{x})兑换资产![](http://latex.codecogs.com/svg.latex?V_{y})， 交易池内资产![](http://latex.codecogs.com/svg.latex?V_{x})总量为![](http://latex.codecogs.com/svg.latex?U_{x})，资产![](http://latex.codecogs.com/svg.latex?V_{y})总量为![](http://latex.codecogs.com/svg.latex?U_{y})（按交易时的价格换算成ETH），![](http://latex.codecogs.com/svg.latex?\lambda&space;)的值的大小取决于![](http://latex.codecogs.com/svg.latex?U_{x}/U_{y})的值的大小，具体公式如下： 
 
-![](http://latex.codecogs.com/svg.latex?%5Clambda=%5Cleft%5C%7B%5Cbegin%7Bmatrix%7D0.50%20&%20U_%7Bx%7D/U_%7By%7D%5Cgeq%2010%20%5C%5C0.75%20&%2010%3EU_%7Bx%7D/U_%7By%7D%5Cgeq%203%20%5C%5C1.00%20&%203%3EU_%7Bx%7D/U_%7By%7D%5Cgeq%200.33%20%5C%5C1.33%20&%200.33%3EU_%7Bx%7D/U_%7By%7D%5Cgeq%200.1%20%5C%5C2.0%20&%20U_%7Bx%7D/U_%7By%7D%3C%200.1%20%5C%5C%5Cend%7Bmatrix%7D%5Cright.)
+![](http://latex.codecogs.com/svg.latex?%5Clambda=%5Cleft%5C%7B%5Cbegin%7Bmatrix%7D0.25%20&%20U_%7Bx%7D/U_%7By%7D%5Cgeqslant%2010%20%5C%5C%200.50%20&%2010%3E%20U_%7Bx%7D/U_%7By%7D%5Cgeqslant%203%20%5C%5C1.00%20&%203%3E%20U_%7Bx%7D/U_%7By%7D%5Cgeqslant%200.33%20%20%5C%5C2.00%20&%200.33%3E%20U_%7Bx%7D/U_%7By%7D%5Cgeqslant%200.1%20%20%5C%5C4.00%20&%20U_%7Bx%7D/U_%7By%7D%3C%200.1%20%20%5C%5C%5Cend%7Bmatrix%7D%5Cright.)
 
 (4) 出矿量公式：
 
