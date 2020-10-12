@@ -328,7 +328,7 @@ Alice 转入 c 个 XToken ，那么可以兑换出来的 ETH 数量 e 为：
 
 ### 7.5、CoFi分红及回购模型：
 
-参与挖矿的交易池，其所有交易佣金ETH进入系统分红池，其中ɑ比例用于分红，1-ɑ用于回购，回购机制在CoFi上线CoFiX后由DAO另行设计。
+参与挖矿的交易池，其所有交易佣金ETH进入系统分红池，其中ɑ比例用于分红，![](http://latex.codecogs.com/svg.latex?1-\alpha&space;)用于回购，当前![](http://latex.codecogs.com/svg.latex?\alpha=20%)，回购机制在CoFi上线CoFiX后由DAO另行设计。
 
 假设CoFi持有人m在时刻![](http://latex.codecogs.com/svg.latex?h_{m,t-1})，(![](http://latex.codecogs.com/svg.latex?h_{m,t-1})表示m的第t-1次操作对应的时刻)，存入分红合约的CoFi数量余额![](http://latex.codecogs.com/svg.latex?n_{m,t-1})，则m在其后一个时刻![](http://latex.codecogs.com/svg.latex?h_{m,t})，无论执行存入、取出、领取三种操作的任何一种，都可以分得ETH，且分红数量为：
 
