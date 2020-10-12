@@ -265,7 +265,7 @@ Alice 转入 c 个 XToken ，那么可以兑换出来的 ETH 数量 e 为：
 
 (4) 出矿量公式：
 
-![](http://latex.codecogs.com/svg.latex?y_{t})对应的出矿量![](http://latex.codecogs.com/svg.latex?A(y_{t}))计算如下：
+![](http://latex.codecogs.com/svg.latex?y_{t})对应的交易者出矿量![](http://latex.codecogs.com/svg.latex?A(y_{t}))计算如下：
 
 ![](http://latex.codecogs.com/svg.latex?A(y_%7Bt%7D)=%5Cleft%5C%7B%5Cbegin%7Bmatrix%7D0.8*y_%7Bt%7D*a_%7Bt%7D*%5Clambda&f_%7Bt%7D%5Cleq%20L*%5Ctheta*a_%7Bt%7D%5C%5C0.8*y_%7Bt%7D*a_%7Bt%7D*L*%5Ctheta*a_%7Bt%7D*(2f_%7Bt%7D-L*%5Ctheta*a_%7Bt%7D)/%7Bf_%7Bt%7D%7D%5E%7B2%7D*%5Clambda&f_%7Bt%7D%3EL*%5Ctheta*a_%7Bt%7D%5C%5C%5Cend%7Bmatrix%7D%5Cright.)
 
